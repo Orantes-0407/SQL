@@ -1,0 +1,7 @@
+Para exportación de datos:
+Primero creamos un archivo de texto vacío, teniendo esto seleccionamos nuestra base de datos, seleccionamos la opción tareas y elegimos exportar datos.
+Configuramos la origen de datos y selecionamos la opción Microsoft OLE DB Provider for SQL Server y seleccionamos la base de daros donde está la tabla que queremos exportar
+En la opción destino buscamos nuestro archivo de texto en blanco y le damos a siguiente y esperamos que se complete la exportación.
+
+Para importación:
+Hacemos el mismo procedimiento, solo que en vez de exportar datos usamos la opción importar datos, y colocamos la ruta de nuestro archivo txt y le damos en siguiente y colocamos el nombre de nuestra tabla temporal para que los datos se almacenen ahí.
