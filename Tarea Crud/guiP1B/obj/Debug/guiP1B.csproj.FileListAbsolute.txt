@@ -1,0 +1,20 @@
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\bin\Debug\guiP1B.exe.config
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\bin\Debug\guiP1B.exe
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\bin\Debug\guiP1B.pdb
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.AssemblyReference.cache
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.Form1.resources
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.Properties.Resources.resources
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.GenerateResource.cache
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.CoreCompileInputs.cache
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.exe
+C:\U\2025\P1\Semana 10 - CRUD en C# con bases de datos (05-04-2025)\Ejemplos\Consola\guiP1B\guiP1B\obj\Debug\guiP1B.pdb
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\bin\Debug\guiP1B.exe.config
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\bin\Debug\guiP1B.exe
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\bin\Debug\guiP1B.pdb
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.AssemblyReference.cache
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.Form1.resources
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.Properties.Resources.resources
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.GenerateResource.cache
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.exe
+C:\Users\USUARIO\Downloads\1_5166132924445099644\guiP1B\guiP1B\obj\Debug\guiP1B.pdb
