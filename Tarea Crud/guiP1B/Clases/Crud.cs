@@ -4,11 +4,57 @@ using System.Data.SqlClient;
 
 namespace guiP1B.Clases
 {
+
     public class Crud
     {
-        public string AgregarTarea(string carnet, string descripcion, DateTime fechaEntrega)
+        public string EliminarAlumno(string carnet)
         {
-            string query = "INSERT INTO Tarea (carnet, descripcion, fecha_entrega) VALUES (@carnet, @descripcion, @fechaEntrega)";
+            string queryAlumno = "DELETE FROM Tb_alumnos WHERE carnet = @carnet";
+            string queryNotas = "DELETE FROM Tareas WHERE carnet = @carnet";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Eliminar las notas del alumno
+                    using (SqlCommand commandNotas = new SqlCommand(queryNotas, connection))
+                    {
+                        commandNotas.Parameters.AddWithValue("@carnet", carnet);
+                        commandNotas.ExecuteNonQuery();
+                    }
+
+                    // Eliminar el registro del alumno
+                    using (SqlCommand commandAlumno = new SqlCommand(queryAlumno, connection))
+                    {
+                        commandAlumno.Parameters.AddWithValue("@carnet", carnet);
+                        commandAlumno.ExecuteNonQuery();
+                    }
+                }
+
+                return "Registro eliminado exitosamente";
+            }
+            catch (SqlException ex)
+            {
+                return $"Error de SQL: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+
+        public string ActualizarNotas(string carnet, string nota1, string nota2, string nota3, string nota4)
+        {
+            string query = @"
+        UPDATE Tareas
+        SET 
+            nota1 = @nota1,
+            nota2 = @nota2,
+            nota3 = @nota3,
+            nota4 = @nota4
+        WHERE carnet = @carnet";
 
             try
             {
@@ -16,12 +62,14 @@ namespace guiP1B.Clases
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@carnet", carnet);
-                    command.Parameters.AddWithValue("@descripcion", descripcion);
-                    command.Parameters.AddWithValue("@fechaEntrega", fechaEntrega);
+                    command.Parameters.AddWithValue("@nota1", nota1);
+                    command.Parameters.AddWithValue("@nota2", nota2);
+                    command.Parameters.AddWithValue("@nota3", nota3);
+                    command.Parameters.AddWithValue("@nota4", nota4);
 
                     connection.Open();
                     command.ExecuteNonQuery();
-                    return "Tarea agregada exitosamente";
+                    return "Notas actualizadas exitosamente";
                 }
             }
             catch (SqlException ex)
@@ -33,6 +81,98 @@ namespace guiP1B.Clases
                 return $"Error: {ex.Message}";
             }
         }
+
+        public Dictionary<string, string> ObtenerNotasDeTareas(string carnet)
+        {
+            string query = @"
+        SELECT 
+            nota1, 
+            nota2, 
+            nota3, 
+            nota4 
+        FROM Tareas 
+        WHERE carnet = @carnet";
+
+            Dictionary<string, string> notas = new Dictionary<string, string>();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@carnet", carnet);
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            notas["nota1"] = reader["nota1"].ToString();
+                            notas["nota2"] = reader["nota2"].ToString();
+                            notas["nota3"] = reader["nota3"].ToString();
+                            notas["nota4"] = reader["nota4"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception($"Error de SQL: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error: {ex.Message}");
+            }
+
+            return notas;
+        }
+
+
+        public string AgregarAlumno(string carnet, string nombre, string email, string seccion, string nota1, string nota2, string nota3, string nota4)
+        {
+            string queryAlumno = "INSERT INTO Tb_alumnos (carnet, estudiante, email, seccion) VALUES (@carnet, @nombre, @email, @seccion)";
+            string queryNotas = "INSERT INTO Tareas (carnet, nota1, nota2, nota3, nota4) VALUES (@carnet, @nota1, @nota2, @nota3, @nota4)";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Insertar en la tabla de alumnos
+                    using (SqlCommand commandAlumno = new SqlCommand(queryAlumno, connection))
+                    {
+                        commandAlumno.Parameters.AddWithValue("@carnet", carnet);
+                        commandAlumno.Parameters.AddWithValue("@nombre", nombre);
+                        commandAlumno.Parameters.AddWithValue("@email", email);
+                        commandAlumno.Parameters.AddWithValue("@seccion", seccion);
+                        commandAlumno.ExecuteNonQuery();
+                    }
+
+                    // Insertar en la tabla de notas
+                    using (SqlCommand commandNotas = new SqlCommand(queryNotas, connection))
+                    {
+                        commandNotas.Parameters.AddWithValue("@carnet", carnet);
+                        commandNotas.Parameters.AddWithValue("@nota1", nota1);
+                        commandNotas.Parameters.AddWithValue("@nota2", nota2);
+                        commandNotas.Parameters.AddWithValue("@nota3", nota3);
+                        commandNotas.Parameters.AddWithValue("@nota4", nota4);
+                        commandNotas.ExecuteNonQuery();
+                    }
+                }
+
+                return "Registro y notas agregados exitosamente";
+            }
+            catch (SqlException ex)
+            {
+                return $"Error de SQL: {ex.Message}";
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+
 
         // Método para buscar tareas por número de carnet
         public List<string> BuscarTareasPorCarnet(string carnet)
